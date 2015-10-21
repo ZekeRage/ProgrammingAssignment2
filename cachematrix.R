@@ -5,7 +5,8 @@
 ## and the latter retrieving a cached object, should one exist.
 
 ## 'makeCacheMatrix' is a list of 4 functions that creates a matrix object
-## that can cache its inverse
+## that can cache its inverse.  'setm()' and 'getm()' are defined here for 
+## the 'cacheSolve' function
 
 makeCacheMatrix <- function(x = matrix()) 
 	m <- NULL
@@ -22,16 +23,16 @@ makeCacheMatrix <- function(x = matrix())
 ## 'cacheSolve' is a function that computes the inverse of the matrix object
 ## computed by 'makeCacheMatrix' (the function coded above).  If the inverse
 ## has already been calculated, then 'cacheSolve' should retrieve the inverse
-## from the cache.  I
+## from the cache.
 
 cacheSolve <- function(x = matrix(),  ...) {
-	m <- x$getmatrix()
+	m <- x$getm()
 	if(!is.null(m)) {
-		message("getting cached data"
+		message("getting cached data")
 		return(m)
 	}
 	data <- x$get()
 	m <- solve(data, ...)
-	x$setmatrix(m)
+	x$setm(m)
 	m
 }
