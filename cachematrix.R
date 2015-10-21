@@ -1,12 +1,13 @@
 ## 'makeCacheMatrix' is a list of 4 functions: set(), get(), setm(), getm()
 ## These 4 functions comprise Assignment 2 of the R Programming course on Coursera
 ## Both 'makeCacheMatrix' and 'cacheSolve' functions were written to demonstrate
-## lexical scoping within the R environment.
+## lexical scoping within the R environment with the former creating a matrix object
+## and the latter retrieving a cached object, should one exist.
 
 ## 'makeCacheMatrix' is a list of 4 functions that creates a matrix object
 ## that can cache its inverse
 
-makeCacheMatrix <- function(x = matrix()) {
+makeCacheMatrix <- function(x = matrix()) 
 	m <- NULL
 	set <- function(y) {
 		x <<- y
